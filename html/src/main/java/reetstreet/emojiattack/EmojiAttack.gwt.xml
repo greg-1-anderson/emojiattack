@@ -1,0 +1,11 @@
+<module rename-to='emojiattack'>
+  <inherits name='playn.PlayN'/>
+  <inherits name='EmojiAttackAssets'/>
+
+  <source path='core'/>
+  <source path='html'/>
+
+  <public path="resources" />
+
+  <entry-point class='reetstreet.emojiattack.html.EmojiAttackHtml'/>
+</module>
