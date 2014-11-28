@@ -65,13 +65,13 @@ public class Actor {
         spriteIndex = (spriteIndex + 1) % sprite.numSprites();
         sprite.setSprite(spriteIndex);
       }
-      angle += ((float)delta) / 100.0;
-      sprite.layer().setRotation(angle);
+      //angle += ((float)delta) / 100.0;
+      //sprite.layer().setRotation(angle);
       
       float x = sprite.layer().tx();
       float y = sprite.layer().ty();
-      x += Math.random();
-      y += Math.random();
+      x += 3;//Math.random();
+      //y += Math.random();
       
       sprite.layer().setTranslation(x, y);
     }
