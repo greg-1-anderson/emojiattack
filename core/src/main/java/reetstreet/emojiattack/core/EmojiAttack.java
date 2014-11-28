@@ -25,7 +25,7 @@ public class EmojiAttack extends Game.Default {
     graphics().rootLayer().add(layer);
 
     // create and add background image layer
-    Image bgImage = assets().getImage("images/bg.png");
+    Image bgImage = assets().getImage("images/desert_dunes.png");
     ImageLayer bgLayer = graphics().createImageLayer(bgImage);
     layer.add(bgLayer);
 
