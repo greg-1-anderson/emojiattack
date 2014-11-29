@@ -24,20 +24,13 @@ import playn.showcase.core.sprites.Sprite;
 import playn.showcase.core.sprites.SpriteLoader;
 
 public class Actor {
-  public static String IMAGE = "sprites/emoji.png";
-  public static String JSON = "sprites/emojisprite.json";
-  public static String JSON_WITH_IMAGE = "sprites/peasprite2.json";
-  private Sprite sprite;
-  private int spriteIndex = 0;
-  private float angle;
+  protected final Sprite sprite;
+  protected int spriteIndex = 0;
+  protected float angle;
   private boolean hasLoaded = false; // set to true when resources have loaded and we can update
 
-  public Actor(final GroupLayer peaLayer, final float x, final float y) {
-    // Sprite method #1: use a sprite image and json data describing the sprites
-    sprite = SpriteLoader.getSprite(IMAGE, JSON);
-
-    // Sprite method #2: use json data describing the sprites and containing the image urls
-    // sprite = SpriteLoader.getSprite(JSON_WITH_IMAGE);
+  public Actor(final GroupLayer actorLayer, final String image, final String json, final float x, final float y) {
+    sprite = SpriteLoader.getSprite(image, json);
 
     // Add a callback for when the image loads.
     // This is necessary because we can't use the width/height (to center the
@@ -48,7 +41,7 @@ public class Actor {
         sprite.setSprite(spriteIndex);
         sprite.layer().setOrigin(sprite.width() / 2f, sprite.height() / 2f);
         sprite.layer().setTranslation(x, y);
-        peaLayer.add(sprite.layer());
+        actorLayer.add(sprite.layer());
         hasLoaded = true;
       }
 
@@ -58,22 +51,11 @@ public class Actor {
       }
     });
   }
+  
+  public boolean isLoaded() {
+      return hasLoaded;
+  }
 
   public void update(int delta) {
-    if (hasLoaded) {
-      if (Math.random() > 0.95) {
-        spriteIndex = (spriteIndex + 1) % sprite.numSprites();
-        sprite.setSprite(spriteIndex);
-      }
-      //angle += ((float)delta) / 100.0;
-      //sprite.layer().setRotation(angle);
-      
-      float x = sprite.layer().tx();
-      float y = sprite.layer().ty();
-      x += 3;//Math.random();
-      //y += Math.random();
-      
-      sprite.layer().setTranslation(x, y);
-    }
   }
 }

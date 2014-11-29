@@ -33,16 +33,17 @@ public class EmojiAttack extends Game.Default {
     pointer().setListener(new Pointer.Adapter() {
       @Override
       public void onPointerEnd(Pointer.Event event) {
-        addActor(event.x(), event.y());
+        addEmoji(event.x(), event.y());
       }
     });
 
-    addActor(graphics().width() / 2, graphics().height() / 2);
+    Actor village = new Village(layer, graphics().width() / 2, graphics().height() / 2);
+    actors.add(village);
   }
 
   
-  private void addActor(float x, float y) {
-    Actor actor = new Actor(layer, x, y);
+  private void addEmoji(float x, float y) {
+    Actor actor = new Emoji(layer, x, y);
     actors.add(actor);
   }
 
