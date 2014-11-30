@@ -15,7 +15,7 @@ public class Point {
     private final float x;
     private final float y;
     
-    public Point(float x,float y){
+    public Point(final float x, final float y){
         this.x = x;
         this.y = y;
     }

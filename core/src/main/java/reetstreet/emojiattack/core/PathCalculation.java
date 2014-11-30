@@ -10,10 +10,8 @@ package reetstreet.emojiattack.core;
  *
  * @author ga
  */
-public interface Path {
-    Point getStart();
-    Point getEnd();
-    Point location(float t);
-    float distance(float t);
-    float advance(float t,float delta);
+interface PathCalculation {
+    public Point location(final Path p, final float t);
+    public float distance(final Path p, final float t);
+    public float advance(final Path p, final float t, final float delta);        
 }
