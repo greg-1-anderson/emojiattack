@@ -17,7 +17,11 @@ public class SimplePath implements Path {
         this.next = null;
         this.pathCalculation = null;
     }
-
+    public SimplePath(Point start,SimplePath continuation) {
+        this.start = start;
+        this.next = continuation;
+        this.pathCalculation = new LinePath();
+    }
     public Point getStart() {
         return start;
     }
