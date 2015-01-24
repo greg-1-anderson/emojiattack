@@ -13,7 +13,6 @@ package reetstreet.emojiattack.core;
 public interface Path {
     Point getStart();
     Point getEnd();
-    Point location(float t);
-    float distance(float t);
-    float advance(float t,float delta);
+    float length();
+    Point location(float d);
 }
